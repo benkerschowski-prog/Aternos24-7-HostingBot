@@ -476,7 +476,7 @@ function createBot() {
     bot.loadPlugin(pathfinder);
 
   } catch (err) {
-    console.log([Bot] Failed to create bot: ${err.message});
+console.log(´[Bot] Failed to create bot: ${err.message}´);
     scheduleReconnect();
   }
 
