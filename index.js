@@ -579,14 +579,11 @@ setTimeout(() => {
       }
     });
 
-    bot.on('error', (err) => {
-      const msg = err.message || '';
-      console.log(`[Bot] Error: ${msg}`);
-      botState.errors.push({ type: 'error', message: msg, time: Date.now() });
-      // Don't reconnect on error - let 'end' event handle it
-    });
-
-}
+ bot.on('error', (err) => {
+  const msg = err.message || '';
+  console.log('[Bot] Error: ' + msg);
+  botState.errors.push({ type: 'error', message: msg, time: Date.now() });
+});
 
 function scheduleReconnect() {
   clearBotTimeouts();
