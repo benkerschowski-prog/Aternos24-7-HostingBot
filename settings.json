@@ -6,7 +6,7 @@
     "type": "offline"
   },
   "server": {
-    "ip": "Klassenserver-nyx0.aternos.me:53396",
+    "ip": "Klassenserver-nyx0.aternos.me",
     "port": 53396,
     "version": "",
     "try-creative": false
