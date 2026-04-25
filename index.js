@@ -429,6 +429,7 @@ function getReconnectDelay() {
 }
 
 function createBot() {
+  setTimeout(() => {
   if (isReconnecting) {
     console.log('[Bot] Already reconnecting, skipping...');
     return;
@@ -449,10 +450,18 @@ function createBot() {
   console.log(`[Bot] Creating bot instance...`);
   console.log(`[Bot] Connecting to ${config.server.ip}:${config.server.port}`);
 
+   setTimeout(() => {
   try {
-    // FIX: use version:false to auto-detect server version so the bot can join any server.
-    // If the user explicitly sets a version in settings.json it is still respected.
-    const botVersion = config.server.version && config.server.version.trim() !== '' ? config.server.version : false;
+    // FIX: use version:false ...
+    const botVersion = config.server.version && config.server.version.trim() !== ''
+      ? config.server.version
+      : false;
+
+    if (isReconnecting) {
+      console.log('[Bot] Already reconnecting, skipping...');
+      return;
+    }
+
     bot = mineflayer.createBot({
       username: config['bot-account'].username,
       password: config['bot-account'].password || undefined,
@@ -461,10 +470,17 @@ function createBot() {
       port: config.server.port,
       version: botVersion,
       hideErrors: false,
-      checkTimeoutInterval: 600000
+      checkTimeoutInterval: 60000
     });
 
     bot.loadPlugin(pathfinder);
+
+  } catch (err) {
+    console.log([Bot] Failed to create bot: ${err.message});
+    scheduleReconnect();
+  }
+
+}, 10000);
 
     // FIX: connection timeout - end the old bot before reconnecting to avoid ghost bots
     clearBotTimeouts();
