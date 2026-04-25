@@ -1,26 +1,25 @@
 {
-  "name": "AFK Bot",
+  "name": "Aternos24-7-HostingBot-4",
   "bot-account": {
-    "username": "imgonnacream",
+    "username": "Afk-server-bot",
     "password": "",
     "type": "offline"
   },
   "server": {
     "ip": "Klassenserver-nyx0.aternos.me",
     "port": 53396,
-    "version": "",
+    "version": "1.20.1",
     "try-creative": false
   },
   "position": {
-    "enabled": true,
+    "enabled": false,
     "x": 5,
     "y": 68,
     "z": -10
   },
   "utils": {
     "auto-auth": {
-      "enabled": true,
-      "password": "chalol78"
+      "enabled": false
     },
     "anti-afk": {
       "enabled": true,
