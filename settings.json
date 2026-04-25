@@ -6,8 +6,8 @@
     "type": "offline"
   },
   "server": {
-    "ip": "survivalworld-dRNF.aternos.me",
-    "port": 44019,
+    "ip": "Klassenserver-nyx0.aternos.me",
+    "port": 53396,
     "version": "",
     "try-creative": false
   },
