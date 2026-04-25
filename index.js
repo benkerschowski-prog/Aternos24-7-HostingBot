@@ -450,9 +450,9 @@ function createBot() {
   console.log(`[Bot] Creating bot instance...`);
   console.log(`[Bot] Connecting to ${config.server.ip}:${config.server.port}`);
 
-   setTimeout(() => {
+setTimeout(() => {
   try {
-    // FIX: use version:false ...
+
     const botVersion = config.server.version && config.server.version.trim() !== ''
       ? config.server.version
       : false;
@@ -476,10 +476,9 @@ function createBot() {
     bot.loadPlugin(pathfinder);
 
   } catch (err) {
-console.log(´[Bot] Failed to create bot: ${err.message}´);
+    console.log('[Bot] Failed to create bot: ' + err.message);
     scheduleReconnect();
   }
-
 }, 10000);
 
     // FIX: connection timeout - end the old bot before reconnecting to avoid ghost bots
