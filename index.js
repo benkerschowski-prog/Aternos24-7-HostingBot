@@ -586,10 +586,6 @@ setTimeout(() => {
       // Don't reconnect on error - let 'end' event handle it
     });
 
-  } catch (err) {
-    console.log(`[Bot] Failed to create bot: ${err.message}`);
-    scheduleReconnect();
-  }
 }
 
 function scheduleReconnect() {
